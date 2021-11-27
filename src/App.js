@@ -21,13 +21,16 @@ const App = () => {
       <Features />
       <Certificate />
       <Courses />
-      {/* <Action/> */}
+      <Action/>
       <Teachers/>
-      {/* <AutoPlay/> */}
+      <AutoPlay/>
       <Footer/>
     </div>
   );
 };
 
 export default App;
-git remote set-url origin https://Muxutdinov:<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>@github.com/Muxutdinov/qtlms.git
+
+
+
+// git remote set-url origin https://Muxutdinov:<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>@github.com/Muxutdinov/qtlms.git

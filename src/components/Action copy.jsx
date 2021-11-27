@@ -3,7 +3,7 @@ import React from 'react'
 const Action = () => {
     return (
         <div>
-             <section class="section section-call-to-action">;
+             <section class="section section-call-to-action" style="background-image: url('images/call-to-action.jpg')">;
         <div class="container">
             <div class="section-call-to-action__inner">  
                 <h1>Присоединяйтесь к вебинарам по определенному курсу</h1>
