@@ -6,9 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 import people1 from "../assets/imges/people1.png";
 import people2 from "../assets/imges/people2.png";
 import people3 from "../assets/imges/people3.png";
-// import left from "../assets/imges/left.png";
-// import right from "../assets/imges/right.png";
-
 class AutoPlay extends Component {
   render() {
     const settings = {

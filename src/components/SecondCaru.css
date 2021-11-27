@@ -1,0 +1,44 @@
+.Second {
+  margin-top: -100px;
+  padding: 200px;
+  height: 250px;
+  width: 100%;
+  /* background-color: gainsboro; */
+}
+.SecondCardItem {
+  border-radius: 10px;
+  background-color: rgb(233, 231, 231);
+}
+.SecondCardItemChild {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 90%;
+  height: 240px;
+}
+.SecondCardImg {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.card {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+.SecondText {
+  flex: 2;
+  display: flex;
+  justify-content: start;
+}
+.SecondTitle {
+  font-size: 30px;
+  margin-left: 200px;
+}
+.top{
+  width: 100%;
+  padding: 0px 50px;
+}
