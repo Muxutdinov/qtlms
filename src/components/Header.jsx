@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Header.css";
 
 const Header = () => {
+  const [click, setClick] = useState(true);
   return (
     <header className="header">
       <div className="container">
@@ -32,27 +33,22 @@ const Header = () => {
           </div>
           <div className="header__languages d-none d-lg-block">
             <div className="dropdown">
-              <button
-                className="btn btn-text dropdown-toggle"
-                type="button"
-                id="dropdownLanguages"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
+              <MenuLeng
+                icon={
+                  <button
+                    className="btn btn-text dropdown-toggle"
+                    type="button"
+                    id="dropdownLanguages"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Русский
+                  </button>
+                }
               >
-                Русский
-              </button>
-              <div
-                className="dropdown-menu"
-                aria-labelledby="dropdownLanguages"
-              >
-                <a className="dropdown-item" href="#">
-                  English
-                </a>
-                <a className="dropdown-item" href="#">
-                  Uzbek
-                </a>
-              </div>
+                <DropDownLeng />
+              </MenuLeng>
             </div>
           </div>
           <div className="header__profile">
@@ -109,22 +105,38 @@ const DropDown = () => {
 
 //=========================================
 
+const MenuLeng = (props) => {
+  const [openLeng, setOpenLeng] = useState(false);
+  return (
+    <>
+      <div className="Menu-itemLeng">
+        <a
+          href="#"
+          className="buttonLeng"
+          onClick={() => setOpenLeng(!openLeng)}
+        >
+          {props.icon}
+        </a>
+        {openLeng && props.children}
+      </div>
+    </>
+  );
+};
 
-// const DropDownLeng = () => {
-//   const DropDownItemLeng = (props) => {
-//     return (
-//       <a href="#" className="menu-item">
-//         <span className="icon-button">{props.leftIcon}</span>
-//         {props.children}
-//         <span className="icon-right">{props.rightIcon}</span>
-//       </a>
-//     );
-//   };
-//   return (
-//     <div className="dropdown-leng-leng">
-//       <DropDownItem>Aniq fanlar</DropDownItem>
-//       <DropDownItem>Tabiiy fanlar</DropDownItem>
-//       <DropDownItem>Yana fanlar</DropDownItem>
-//     </div>
-//   );
-// };
+const DropDownLeng = () => {
+  const DropDownItemLeng = (props) => {
+    return (
+      <a href="#" className="menu-item">
+        <span className="icon-button">{props.leftIcon}</span>
+        {props.children}
+        <span className="icon-right">{props.rightIcon}</span>
+      </a>
+    );
+  };
+  return (
+    <div className="dropdown-leng-leng">
+      <DropDownItemLeng>Uzbek</DropDownItemLeng>
+      <DropDownItemLeng>English</DropDownItemLeng>
+    </div>
+  );
+};
