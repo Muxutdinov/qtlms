@@ -1,6 +1,5 @@
-import React from "react";
-// import '../../public/css/style.css'
-// import img1 from '../../public/images/assets/logo.svg'
+import React, { useState } from "react";
+import "./Header.css";
 
 const Header = () => {
   return (
@@ -12,8 +11,12 @@ const Header = () => {
           </a>
           <div className="header__categories d-none d-lg-block">
             <a href="javascript:;" className="btn btn-outline-primary">
-              <span className="icon icon-list mr-3"></span>
-              <span>Категории</span>
+              <div className="dropdawnWrapper">
+                <span className="icon icon-list mr-3"></span>
+                <Menu icon={<span>Категории</span>}>
+                  <DropDown />
+                </Menu>
+              </div>
             </a>
           </div>
           <div className="header__search d-none d-lg-block">
@@ -70,3 +73,58 @@ const Header = () => {
 };
 
 export default Header;
+
+const Menu = (props) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <div className="Menu-item">
+        <a href="#" className="button" onClick={() => setOpen(!open)}>
+          {props.icon}
+        </a>
+        {open && props.children}
+      </div>
+    </>
+  );
+};
+
+const DropDown = () => {
+  const DropDownItem = (props) => {
+    return (
+      <a href="#" className="menu-item">
+        <span className="icon-button">{props.leftIcon}</span>
+        {props.children}
+        <span className="icon-right">{props.rightIcon}</span>
+      </a>
+    );
+  };
+  return (
+    <div className="dropdown-leng">
+      <DropDownItem>Aniq fanlar</DropDownItem>
+      <DropDownItem>Tabiiy fanlar</DropDownItem>
+      <DropDownItem>Yana fanlar</DropDownItem>
+    </div>
+  );
+};
+
+//=========================================
+
+
+// const DropDownLeng = () => {
+//   const DropDownItemLeng = (props) => {
+//     return (
+//       <a href="#" className="menu-item">
+//         <span className="icon-button">{props.leftIcon}</span>
+//         {props.children}
+//         <span className="icon-right">{props.rightIcon}</span>
+//       </a>
+//     );
+//   };
+//   return (
+//     <div className="dropdown-leng-leng">
+//       <DropDownItem>Aniq fanlar</DropDownItem>
+//       <DropDownItem>Tabiiy fanlar</DropDownItem>
+//       <DropDownItem>Yana fanlar</DropDownItem>
+//     </div>
+//   );
+// };
