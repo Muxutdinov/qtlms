@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Header.css";
 
 const Header = () => {
-  const [click, setClick] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <header className="header">
       <div className="container">
@@ -57,13 +57,36 @@ const Header = () => {
               <span>Войти в аккаунт</span>
             </a>
           </div>
-          <div className="mobile-menu-btn">
+          <div
+            className="mobile-menu-btn"
+            onClick={() => setShowMenu(!showMenu)}
+          >
             <button type="button" className="btn btn-primary">
               <span className="icon icon-list"></span>
             </button>
           </div>
         </div>
       </div>
+      {showMenu ? (
+        <div className="mobileMenu" onClick={() => setShowMenu(!showMenu)}>
+          <div className="leftMobile">
+            <div className="MobileBox">
+              <div className="BoxTop">
+                <div className="topleft">Ru</div>
+                <div className="topright">Uz</div>
+              </div>
+              <div className="MiddleBox">
+                <div className="MiddleText">Aniq fanlar</div>
+                <div className="MiddleText">Tabiiy fanlar</div>
+                <div className="MiddleText">Xorijiy tillar</div>
+              </div>
+            </div>
+          </div>
+          <div className="rightMobile"></div>
+        </div>
+      ) : (
+        ""
+      )}
     </header>
   );
 };
