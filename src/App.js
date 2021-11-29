@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css"
 import Action from "./components/Action";
 import AutoPlay from "./components/Autoplay";
 import Certificate from "./components/Certificate";
@@ -14,7 +15,7 @@ import Teachers from "./components/Teachers";
 
 const App = () => {
   return (
-    <div>
+    <div className="App">
       <Header />
       <HeaderLeng />
       <Intro />

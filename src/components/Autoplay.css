@@ -4,6 +4,11 @@
   /* margin-left: 100px; */
   padding: 100px;
 }
+@media screen and (max-width: 992px) {
+  .LastCon {
+   display: none;
+  }
+}
 button.slick-arrow.slick-next::before {
   font-size: 30px;
   background-color: gray;

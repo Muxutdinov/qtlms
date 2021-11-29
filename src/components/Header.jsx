@@ -67,26 +67,27 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {showMenu ? (
-        <div className="mobileMenu" onClick={() => setShowMenu(!showMenu)}>
-          <div className="leftMobile">
-            <div className="MobileBox">
-              <div className="BoxTop">
-                <div className="topleft">Ru</div>
-                <div className="topright">Uz</div>
-              </div>
-              <div className="MiddleBox">
-                <div className="MiddleText">Aniq fanlar</div>
-                <div className="MiddleText">Tabiiy fanlar</div>
-                <div className="MiddleText">Xorijiy tillar</div>
-              </div>
+
+      <div
+        className="mobileMenu"
+        style={showMenu ? { width: "100%" } : {}}
+        onClick={() => setShowMenu(!showMenu)}
+      >
+        <div className="leftMobile">
+          <div className="MobileBox">
+            <div className="BoxTop">
+              <div className="topleft">Ru</div>
+              <div className="topright">Uz</div>
+            </div>
+            <div className="MiddleBox">
+              <div className="MiddleText">Aniq fanlar</div>
+              <div className="MiddleText">Tabiiy fanlar</div>
+              <div className="MiddleText">Xorijiy tillar</div>
             </div>
           </div>
-          <div className="rightMobile"></div>
         </div>
-      ) : (
-        ""
-      )}
+        <div className="rightMobile"></div>
+      </div>
     </header>
   );
 };

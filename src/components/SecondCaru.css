@@ -1,15 +1,16 @@
 .Second {
-  margin-top: -100px;
+  /* margin-top: 300px; */
+  margin-bottom: 100px;
   padding: 200px;
   height: 250px;
   width: 100%;
   /* background-color: gainsboro; */
 }
 .SecondCardItem {
-  border-radius: 10px;
   background-color: rgb(233, 231, 231);
 }
 .SecondCardItemChild {
+  border-radius: 10px;
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -38,7 +39,12 @@
   font-size: 30px;
   margin-left: 200px;
 }
-.top{
+.top {
   width: 100%;
   padding: 0px 50px;
+}
+@media screen and (max-width: 992px) {
+  .Second {
+   display: none;
+  }
 }
