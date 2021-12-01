@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Courses = () => {
@@ -59,9 +60,14 @@ const Courses = () => {
                               value.price + " so'm | 0 kredit"
                             )}
                           </strong>
-                          <button type="button" class="btn btn-primary btn-sm">
-                            Выбрать
-                          </button>
+                          <Link to="courses">
+                            <button
+                              type="button"
+                              class="btn btn-primary btn-sm"
+                            >
+                              Выбрать
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
