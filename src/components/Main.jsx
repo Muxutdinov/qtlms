@@ -12,12 +12,11 @@ const Main = () => {
   }, []);
 
   const getAxios = () => {
+    const token = localStorage.getItem("token");
     axios
       .get("https://api.qtlms.uz/api/v1/course/ingilis-tili", {
         headers: {
-          Authorization:
-            "Bearer " +
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLnF0bG1zLnV6XC9hcGlcL3YxXC9sb2dpbiIsImlhdCI6MTYzODQwNDYwOCwiZXhwIjoxNjM5MjY4NjA4LCJuYmYiOjE2Mzg0MDQ2MDgsImp0aSI6Im9mMUxVUGcyOFBPTld0UU8iLCJzdWIiOjI5NTYsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Ax8JB0aXS3FLmhWL8bqQPv_XzgzUrerG9cFWNPn0AFs",
+          Authorization: "Bearer " + token,
         },
       })
       .then((res) => setData(res.data.data))
@@ -25,12 +24,12 @@ const Main = () => {
   };
 
   const getAxioss = () => {
+    const token = localStorage.getItem("token");
+
     axios
       .get("https://api.qtlms.uz/api/v1/course/ingilis-tili/sections", {
         headers: {
-          Authorization:
-            "Bearer " +
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpLnF0bG1zLnV6XC9hcGlcL3YxXC9sb2dpbiIsImlhdCI6MTYzODQwNDYwOCwiZXhwIjoxNjM5MjY4NjA4LCJuYmYiOjE2Mzg0MDQ2MDgsImp0aSI6Im9mMUxVUGcyOFBPTld0UU8iLCJzdWIiOjI5NTYsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Ax8JB0aXS3FLmhWL8bqQPv_XzgzUrerG9cFWNPn0AFs",
+          Authorization: "Bearer " + token,
         },
       })
       .then((res) => setDataa(res.data.data))
@@ -60,7 +59,6 @@ const Main = () => {
             </div>
           </div>
         </section>
-        ;
         <section class="section section-course pt-3">
           <div class="container">
             <h3 class="mb-4">{data.name}</h3>
@@ -73,48 +71,16 @@ const Main = () => {
                         return (
                           <ul>
                             <h6>{value.name}</h6>
-                            <li>
-                              <a href="#">
-                                <span class="icon icon-play"></span>
-                                {value.childs.name}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <span class="icon icon-play"></span>
-                                {/* {value.name} */}
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <span class="icon icon-lock"></span>Теория
-                                массового маркетинга
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <span class="icon icon-lock"></span>Концепция
-                                холистического маркетинга
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <span class="icon icon-lock"></span>
-                                Использование модели Портера — Лоулера
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <span class="icon icon-lock"></span>Должностная
-                                инструкция маркетолога
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <span class="icon icon-lock"></span>Основные KPI
-                                менеджера по маркетингу
-                              </a>
-                            </li>
+                            {value.childs.map((item) => {
+                              return (
+                                <li>
+                                  <a href="#">
+                                    <span class="icon icon-lock"></span>
+                                    {item.name}
+                                  </a>
+                                </li>
+                              );
+                            })}
                           </ul>
                         );
                       })}
@@ -137,7 +103,7 @@ const Main = () => {
                       <source src="images/video.webm" type="video/webm" />
                     </video>
                   </div>
-                  <h3 class="mb-3">О чем этот курс?</h3>
+                  {/* <h3 class="mb-3">О чем этот курс?</h3> */}
                   <p>{data.description}</p>
                 </div>
               </div>
@@ -145,7 +111,6 @@ const Main = () => {
           </div>
         </section>
       </main>
-      ;
     </>
   );
 };

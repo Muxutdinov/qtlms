@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -8,7 +9,9 @@ const Header = () => {
       <div className="container">
         <div className="header__inner">
           <a href="index.html" className="logo">
-            <img src="/images/assets/logo.svg" alt="Logo" />
+            <Link to="/">
+              <img src="/images/assets/logo.svg" alt="Logo" />
+            </Link>
           </a>
           <div className="header__categories d-none d-lg-block">
             <a href="javascript:;" className="btn btn-outline-primary">
