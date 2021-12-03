@@ -25,7 +25,6 @@ const Main = () => {
 
   const getAxioss = () => {
     const token = localStorage.getItem("token");
-
     axios
       .get("https://api.qtlms.uz/api/v1/course/ingilis-tili/sections", {
         headers: {

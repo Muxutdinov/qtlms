@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import "./Header.css";
 
 const Header = () => {
+  const [show, setShow] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   return (
     <header className="header">
@@ -54,8 +56,9 @@ const Header = () => {
               </MenuLeng>
             </div>
           </div>
-          <div className="header__profile">
-            <a href="dash-statistics.html" className="btn btn-primary">
+          <div className="header__profile" onClick={() => setShow(!show)}>
+            {show ? <SignUp /> : ""}
+            <a href="" className="btn btn-primary">
               <span className="icon icon-user mr-0 mr-sm-2"></span>
               <span>Войти в аккаунт</span>
             </a>
@@ -167,3 +170,79 @@ const DropDownLeng = () => {
     </div>
   );
 };
+
+const SignUp = () => {
+  const [data, setData] = useState(false);
+  return (
+    <Container>
+      <Wrapper>
+        <Title>Ro'yxatdan o'tish</Title>
+        <InputText>Telefon raqam</InputText>
+        <SignUpInput />
+        <Button>Ro'yxatdan o'tish</Button>
+        <Links>Paro'lni tiklash </Links>
+        <Links>Kirish</Links>
+      </Wrapper>
+    </Container>
+  );
+};
+
+export const Container = styled.div`
+  transition: all 0.3s;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+  width: 0%;
+  background-color: black;
+`;
+export const Wrapper = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 350px;
+  width: 550px;
+  background-color: white;
+  border-radius: 10px;
+`;
+export const Title = styled.div`
+  font-size: 25px;
+  color: blue;
+  font-weight: 600;
+`;
+export const InputText = styled.div`
+  font-size: 18px;
+  color: black;
+  /* height: 20px; */
+`;
+export const SignUpInput = styled.input`
+  width: 370px;
+  outline: navy;
+  height: 40px;
+  border: none;
+  background-color: rgb(214, 212, 212);
+  border-radius: 10px;
+`;
+export const Button = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+  height: 50px;
+  width: 370px;
+  border-radius: 10px;
+  :hover {
+    background-color: rgb(89, 201, 197);
+    cursor: pointer;
+  }
+`;
+export const Links = styled.div`
+  height: 20px;
+`;
+
+//=============================
